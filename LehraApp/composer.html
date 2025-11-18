@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Lehra - Composer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="card" style="margin-top:20px; padding:10px;">
+            <a href="index.html">Player</a>
+            <a href="composer.html" style="color:var(--primary)">Composer</a>
+        </nav>
+        
+        <div style="display:flex; justify-content: space-between; align-items:center; margin-top: 20px;">
+            <h2>Lehra Composer</h2>
+            <button onclick="exportAudio()">&#128190; Export Audio</button>
+        </div>
+
+        <div class="card controls">
+            <label>Taal Beats (Columns):</label>
+            <input type="number" id="beatsInput" value="16" min="4" max="32" style="width: 70px">
+            <button onclick="generateGrid()">Update Grid</button>
+            
+            <label>Instrument:</label>
+            <select id="instSelect">
+                <option value="harmonium">Harmonium</option>
+                <option value="sarangi">Sarangi</option>
+                <option value="synth">Synth (Default)</option>
+            </select>
+            <button onclick="clearGrid()">Clear All</button>
+        </div>
+
+        <div class="scroll-wrapper">
+            <div id="gridContainer" class="grid-container"></div>
+        </div>
+
+        <div class="card controls">
+            <button onclick="toggleCompostion()" id="playBtn" class="play">Play Loop</button>
+            <input type="range" min="40" max="300" value="100" oninput="setTempo(this.value)">
+            <span id="bpmDisplay">100 BPM</span>
+        </div>
+    </div>
+    <script src="composer.js"></script>
+</body>
+</html>
